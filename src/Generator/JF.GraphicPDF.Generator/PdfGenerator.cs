@@ -41,7 +41,7 @@ namespace JF.GraphicPDF.Generator
             // Recorrer los elementos y generar el contenido del PDF
             foreach (XmlElement element in elements)
             {
-                switch (element.Name)
+                switch (element.Attributes["Name"]!.Value.ToLower())
                 {
                     case "text":
                         // Crear un párrafo con el texto y aplicar estilos si es necesario
