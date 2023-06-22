@@ -1,0 +1,44 @@
+﻿<Window x:Class="JF.GraphicPDF.Studio.WPF.Designer.Designer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JF.GraphicPDF.Studio.WPF.Designer"
+        mc:Ignorable="d"
+        Title="Designer" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Menú -->
+        <Menu Grid.Row="0">
+            <MenuItem Header="Archivo">
+                <MenuItem Header="Nuevo" />
+                <MenuItem Header="Abrir" />
+            </MenuItem>
+            <MenuItem Header="Ver">
+                <MenuItem Header="XML" />
+                <MenuItem Header="Toolbox" />
+                <MenuItem Header="Lienzo" />
+            </MenuItem>
+        </Menu>
+
+        <!-- División de pantalla -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Editor de texto -->
+            <TextBox Grid.Column="0" Margin="5" />
+
+            <!-- Lienzo de trabajo -->
+            <Canvas Grid.Column="1" Margin="5" Background="LightGray">
+                <!-- Aquí puedes agregar elementos para arrastrar desde el toolbox -->
+            </Canvas>
+        </Grid>
+    </Grid>
+</Window>

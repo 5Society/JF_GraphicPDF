@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Studio", "Studio", "{6281E9A8-16B2-484E-9D06-B9C3CD1546B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JF.GraphicPDF.Studio.WPF", "src\Studio\JF.GraphicPDF.Studio.WPF\JF.GraphicPDF.Studio.WPF.csproj", "{AE1D1BD4-8C43-4B3A-8728-8923B6D3BC2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8C7E0ABD-9D5F-4484-927F-B556D6BECAA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generator", "Generator", "{60AEF46B-85F2-4A47-A003-3B0A1DA0CB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JF.GraphicPDF.Generator", "src\Generator\JF.GraphicPDF.Generator\JF.GraphicPDF.Generator.csproj", "{05A3E7E1-0259-4E74-9E11-7B81EB711687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JF.GraphicPDF.Generator.ConsoleTest", "src\Generator\JF.GraphicPDF.Generator.ConsoleTest\JF.GraphicPDF.Generator.ConsoleTest.csproj", "{93FB4ADC-3701-4812-8B7C-BE5062469693}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE1D1BD4-8C43-4B3A-8728-8923B6D3BC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1D1BD4-8C43-4B3A-8728-8923B6D3BC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1D1BD4-8C43-4B3A-8728-8923B6D3BC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1D1BD4-8C43-4B3A-8728-8923B6D3BC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A3E7E1-0259-4E74-9E11-7B81EB711687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A3E7E1-0259-4E74-9E11-7B81EB711687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A3E7E1-0259-4E74-9E11-7B81EB711687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A3E7E1-0259-4E74-9E11-7B81EB711687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93FB4ADC-3701-4812-8B7C-BE5062469693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FB4ADC-3701-4812-8B7C-BE5062469693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FB4ADC-3701-4812-8B7C-BE5062469693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FB4ADC-3701-4812-8B7C-BE5062469693}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE1D1BD4-8C43-4B3A-8728-8923B6D3BC2A} = {6281E9A8-16B2-484E-9D06-B9C3CD1546B3}
+		{05A3E7E1-0259-4E74-9E11-7B81EB711687} = {60AEF46B-85F2-4A47-A003-3B0A1DA0CB60}
+		{93FB4ADC-3701-4812-8B7C-BE5062469693} = {60AEF46B-85F2-4A47-A003-3B0A1DA0CB60}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26F7F95D-3D8D-43F7-B86C-BA3180A21610}
+	EndGlobalSection
+EndGlobal
