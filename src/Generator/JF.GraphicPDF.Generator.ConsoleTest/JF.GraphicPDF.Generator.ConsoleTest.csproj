@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JF.GraphicPDF.Generator\JF.GraphicPDF.Generator.csproj" />
+  </ItemGroup>
+
 </Project>

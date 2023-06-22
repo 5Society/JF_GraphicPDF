@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Resultado de las pruebas de creación de PDF por consola
+/src/Generator/JF.GraphicPDF.Generator.ConsoleTest/Examples/Result/*.pdf
