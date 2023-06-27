@@ -3,4 +3,6 @@ using JF.GraphicPDF.Generator.ConsoleTest;
 
 Console.WriteLine("Hello, World!");
 
-PdfJob.CreatePDF("..\\..\\..\\Examples\\Test1.xml", "..\\..\\..\\Examples\\Test1.json", "..\\..\\..\\Examples\\Result\\Test1.pdf");
+//PdfJob.CreatePDF("..\\..\\..\\Examples\\Test1.xml", "..\\..\\..\\Examples\\Test1.json", "..\\..\\..\\Examples\\Result\\Test1.pdf");
+PdfJob.CreatePDF("..\\..\\..\\Examples\\Test2.xml", "..\\..\\..\\Examples\\Test2.json", "..\\..\\..\\Examples\\Result\\Test2.pdf");
+
