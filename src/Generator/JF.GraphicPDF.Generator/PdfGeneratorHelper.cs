@@ -1,14 +1,15 @@
-﻿using System;
-using System.IO;
+﻿
 using System.Xml;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using JF.GraphicPDF.Definition;
+using JF.GraphicPDF.Generator.Generator;
 
 namespace JF.GraphicPDF.Generator
 {
 
-    public static class PdfGenerator
+    public static class PdfGeneratorHelper
     {
         /// <summary>
         /// Genera PDF de acuerdo a un documento XML definido
@@ -30,6 +31,18 @@ namespace JF.GraphicPDF.Generator
         /// <param name="outputPath">Ruta en donde se almacenará el PDF</param>
         public static void GeneratePdfFromXml(XmlDocument xmlDoc, string outputPath)
         {
+            //Convierte el XML en un documento
+            PdfGenerator document = new();
+            document.SetPageSize(Enum.PageSize.Letter);
+            for (int i = 0; i < 4; i++)
+            {
+                ISection section = new Section();
+                document.AddSection(section);
+            }
+
+            document.GenerateDocument(outputPath);
+
+            /*
             // Crear el documento PDF
             PdfWriter pdfWriter = new PdfWriter(outputPath);
             PdfDocument pdf = new PdfDocument(pdfWriter);
@@ -49,7 +62,7 @@ namespace JF.GraphicPDF.Generator
                         //ApplyStyles(element, paragraph);
                         document.Add(paragraph);
                         break;
-/*
+
                     case "table":
                         // Crear una tabla y agregar filas y celdas
                         var table = new PdfPTable(element.ChildNodes.Count);
@@ -82,12 +95,14 @@ namespace JF.GraphicPDF.Generator
                         ApplyStyles(element, line);
                         document.Add(line);
                         break;
-*/
+
                 }
             }
 
             document.Close();
+            */            
         }
+
         /*
         private void ApplyStyles(XmlElement element, Element pdfElement)
         {

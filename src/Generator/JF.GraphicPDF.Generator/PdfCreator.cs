@@ -49,7 +49,7 @@ namespace JF.GraphicPDF.Generator
             string outputPath = FilePathGenerator.GenerateFilePath();
             string directoryPath = Path.GetDirectoryName(outputPath)!;
             Directory.CreateDirectory(directoryPath);
-            PdfGenerator.GeneratePdfFromXml(xmlDoc, outputPath);
+            PdfGeneratorHelper.GeneratePdfFromXml(xmlDoc, outputPath);
             byte[] fileBytes = File.ReadAllBytes(outputPath);
             return Convert.ToBase64String(fileBytes);
         }
