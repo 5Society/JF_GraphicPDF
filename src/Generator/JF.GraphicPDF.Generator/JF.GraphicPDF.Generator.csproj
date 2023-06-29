@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\JF.GraphicPDF.Common\JF.GraphicPDF.Common.csproj" />
+    <ProjectReference Include="..\..\Common\JF.GraphicPDF.Common.Implementation\JF.GraphicPDF.Common.Implementation.csproj" />
   </ItemGroup>
 
 </Project>

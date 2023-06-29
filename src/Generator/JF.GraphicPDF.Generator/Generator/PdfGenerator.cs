@@ -4,17 +4,43 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using JF.GraphicPDF.Definition;
+using JF.GraphicPDF.Definitions;
 
 namespace JF.GraphicPDF.Generator.Generator
 {
-    internal class PdfGenerator: Root, IPdfGenerator
+    internal class PdfGenerator : ElementGenerator, IPdfGenerator
     {
+
+        public Root? Root => (Root?)_elementDefinition;
+
         /// <summary>
-        /// Creación de un objeto de clase PdfGenerator a partir de un documento root 
+        /// Constructor
         /// </summary>
-        /// <param name="document">Documento a generar</param>
-        /// <returns></returns>
-        public static PdfGenerator Create(IRoot document) => (PdfGenerator)document;
+        /// <param name="root"></param>
+        public PdfGenerator(Root root)
+        {
+            _elementDefinition = root;
+        }
+
+        public override void Generate(PdfDocument pdfDocument, Document document)
+        {
+            pdfDocument.SetDefaultPageSize(GetPdfPageSize());
+
+            if (Root != null)
+            {
+
+                //Crea las secciones del PDF
+                foreach (Section item in Root.Sections)
+                {
+                    ISectionGenerator sectionGenerator = new SectionGenerator(item);
+                    sectionGenerator.Generate(pdfDocument, document);
+                    if (item != Root.Sections.Last())
+                        document.Add(new AreaBreak());
+                }
+            }
+
+            base.Generate(pdfDocument, document);
+        }
 
         public void GenerateDocument(string outputPath)
         {
@@ -22,39 +48,33 @@ namespace JF.GraphicPDF.Generator.Generator
             PdfWriter pdfWriter = new PdfWriter(outputPath);
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document document = new Document(pdf);
-
-            pdf.SetDefaultPageSize(GetPdfPageSize());
-
-            //Crea las secciones del PDF
-            foreach (Section item in Sections)
-            {
-                SectionGenerator sectionGenerator = new(item);
-                sectionGenerator.AddSection(document);
-                if(item!=Sections.Last()) 
-                    document.Add(new AreaBreak());
-            }
+            Generate(pdf, document);
 
             //Cierra el documento
             document.Close();
         }
 
-        public PageSize GetPdfPageSize()
+        public iText.Kernel.Geom.PageSize GetPdfPageSize()
         {
-            PageSize result;
-            switch (this.PageSize)
+            iText.Kernel.Geom.PageSize result = iText.Kernel.Geom.PageSize.LETTER;
+            if (Root != null)
             {
-                case Enum.PageSize.Letter:
-                    result = iText.Kernel.Geom.PageSize.LETTER;
-                    break;
-                case Enum.PageSize.Legal:
-                    result = iText.Kernel.Geom.PageSize.LEGAL;
-                    break;
-                default:
-                    result = iText.Kernel.Geom.PageSize.LETTER;
-                    break;
+                switch (Root.PageSize)
+                {
+                    case Definitions.PageSize.Letter:
+                        result = iText.Kernel.Geom.PageSize.LETTER;
+                        break;
+                    case Definitions.PageSize.Legal:
+                        result = iText.Kernel.Geom.PageSize.LEGAL;
+                        break;
+                    default:
+                        result = iText.Kernel.Geom.PageSize.LETTER;
+                        break;
+                }
             }
             return result;
 
         }
+
     }
 }

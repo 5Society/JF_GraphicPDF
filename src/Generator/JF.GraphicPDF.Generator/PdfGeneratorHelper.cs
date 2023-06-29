@@ -1,9 +1,12 @@
 ﻿
+using System.Text.Json;
 using System.Xml;
+using System.Xml.Serialization;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using JF.GraphicPDF.Definition;
+using JF.GraphicPDF.Definitions;
 using JF.GraphicPDF.Generator.Generator;
 
 namespace JF.GraphicPDF.Generator
@@ -32,16 +35,30 @@ namespace JF.GraphicPDF.Generator
         public static void GeneratePdfFromXml(XmlDocument xmlDoc, string outputPath)
         {
             //Convierte el XML en un documento
-            PdfGenerator document = new();
-            document.SetPageSize(Enum.PageSize.Letter);
+            Root rootDocument = new Root();
+            rootDocument.SetPageSize(PageSize.Letter);
             for (int i = 0; i < 4; i++)
             {
                 ISection section = new Section();
-                document.AddSection(section);
+                section.Margin = new Margin(i*10,i*10,i*10,i*10);
+                rootDocument.AddSection(section);
             }
 
+            PdfGenerator document = new(rootDocument);
             document.GenerateDocument(outputPath);
+            /*
+            //Serializa en Xml
+            var serializer = new XmlSerializer(typeof(Root));
+            using (var writer = new StreamWriter(outputPath + ".xml"))
+            {
+                serializer.Serialize(writer, rootDocument);
+            }
+            
 
+            //Serializa en Json
+            string jsonString = JsonSerializer.Serialize(rootDocument);
+            File.WriteAllText(outputPath + ".json", jsonString);
+            */
             /*
             // Crear el documento PDF
             PdfWriter pdfWriter = new PdfWriter(outputPath);
@@ -100,7 +117,7 @@ namespace JF.GraphicPDF.Generator
             }
 
             document.Close();
-            */            
+            */
         }
 
         /*
