@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <PageSize>Letter</PageSize>
+  <Section Type="JF.GraphicPDF.Definition.Section" />
+  <Section Type="JF.GraphicPDF.Definition.Section" />
+  <Section Type="JF.GraphicPDF.Definition.Section" />
+  <Section Type="JF.GraphicPDF.Definition.Section" />
+</Root>
